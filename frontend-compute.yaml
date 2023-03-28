@@ -52,6 +52,8 @@ spec:
   description: a external address for the test compute instance
   location: europe-west4
   addressType: external
+  subnetworkRef:
+    external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
   #purpose: GCE_ENDPOINT
 ---
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
@@ -64,4 +66,6 @@ spec:
   description: a external address for the test compute instance
   location: europe-west4
   addressType: internal
+  subnetworkRef:
+    external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
   #purpose: GCE_ENDPOINT
