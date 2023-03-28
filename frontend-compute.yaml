@@ -54,8 +54,6 @@ spec:
   addressType: EXTERNAL
   networkRef:
     external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/global/networks/openvpc
-  subnetworkRef:
-    external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
   #purpose: GCE_ENDPOINT
 ---
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
