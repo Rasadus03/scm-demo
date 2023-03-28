@@ -19,7 +19,7 @@ spec:
         external: https://www.googleapis.com/compute/beta/projects/debian-cloud/global/images/debian-11-bullseye-v20230306
     mode: READ_WRITE
   networkInterface:
-    stackType: IPV4_ONLY
+    #stackType: IPV4_ONLY
     - subnetworkRef:
         external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
   serviceAccount:
