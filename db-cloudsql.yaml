@@ -8,7 +8,7 @@ spec:
   charset: utf8mb4
   collation: utf8mb4_bin
   instanceRef:
-    name: sqldatabase-dep
+    name: guest-book
 ---
 apiVersion: sql.cnrm.cloud.google.com/v1beta1
 kind: SQLInstance
