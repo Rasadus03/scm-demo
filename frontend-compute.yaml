@@ -20,9 +20,6 @@ spec:
     mode: READ_WRITE
   networkInterface:
     stackType: IPV4_ONLY
-    subnetworkProject: raniamoh-playground
-    - networkRef:
-        external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/global/networks/openvpc
     - subnetworkRef:
         external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
   serviceAccount:
