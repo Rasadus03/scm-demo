@@ -52,7 +52,7 @@ spec:
   description: a external address for the test compute instance
   location: europe-west4
   addressType: external
-  purpose: GCE_ENDPOINT
+  #purpose: GCE_ENDPOINT
 ---
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeAddress
@@ -64,4 +64,4 @@ spec:
   description: a external address for the test compute instance
   location: europe-west4
   addressType: internal
-  purpose: GCE_ENDPOINT
+  #purpose: GCE_ENDPOINT
