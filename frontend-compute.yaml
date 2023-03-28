@@ -45,6 +45,8 @@ spec:
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeAddress
 metadata:
+  annotations:
+    cnrm.cloud.google.com/project-id: raniamoh-playground
   name: guest-frontend-ip-ext
 spec:
   description: a external address for the test compute instance
@@ -55,6 +57,8 @@ spec:
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeAddress
 metadata:
+  annotations:
+    cnrm.cloud.google.com/project-id: raniamoh-playground
   name: guest-frontend-ip-int
 spec:
   description: a external address for the test compute instance
