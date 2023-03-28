@@ -6,10 +6,9 @@ metadata:
   name: guest-frontend-ip-ii
 spec:
   addressType: INTERNAL
-  description: a external address for the test compute instance
   location: europe-west4
-  networkRef:
-    external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/global/networks/openvpc
+  subnetworkRef:
+    external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
 ---
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeAddress
@@ -19,10 +18,6 @@ metadata:
   name: guest-frontend-ip-ee
 spec:
   addressType: EXTERNAL
-  description: a external address for the test compute instance
   location: europe-west4
   networkRef:
     external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/global/networks/openvpc
-  #purpose: GCE_ENDPOINT
----
-  #purpose: GCE_ENDPOINT
