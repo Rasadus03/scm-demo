@@ -17,6 +17,10 @@ spec:
     diskType: PD_SSD
     ipConfiguration:
       ipv4Enabled: true
+    maintenanceWindow:
+      day: 7
+      hour: 12
+      updateTrack: stable
     locationPreference:
       zone: europe-west4-c
     pricingPlan: PER_USE
