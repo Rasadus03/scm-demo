@@ -35,7 +35,7 @@ metadata:
     cnrm.cloud.google.com/project-id: raniamoh-playground
   name: guest-book-database
 spec:
-  charset: utf8mb4
-  collation: utf8mb4_bin
+  charset: UTF8
+  collation: en_US.UTF8
   instanceRef:
     name: guest-book
