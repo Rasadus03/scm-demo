@@ -14,9 +14,10 @@ spec:
   bootDisk:
     initializeParams:
       size: 24
-      type: pd-ssd
+      type: pd-balanced
       sourceImageRef:
-        external: debian-cloud/debian-11
+        external: https://www.googleapis.com/compute/beta/projects/debian-cloud/global/images/debian-11-bullseye-v20230306
+    mode: READ_WRITE
   networkInterface:
     stackType: IPV4_ONLY
     subnetworkProject: raniamoh-playground
