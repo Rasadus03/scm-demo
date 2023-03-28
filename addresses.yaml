@@ -5,9 +5,9 @@ metadata:
     cnrm.cloud.google.com/project-id: raniamoh-playground
   name: guest-frontend-ip-inter
 spec:
+  addressType: INTERNAL
   description: a external address for the test compute instance
   location: europe-west4
-  addressType: INTERNAL
   networkRef:
     external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/global/networks/openvpc
  ---
@@ -18,9 +18,9 @@ metadata:
     cnrm.cloud.google.com/project-id: raniamoh-playground
   name: guest-frontend-ip-exter
 spec:
+  addressType: EXTERNAL
   description: a external address for the test compute instance
   location: europe-west4
-  addressType: EXTERNAL
   networkRef:
     external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/global/networks/openvpc
   #purpose: GCE_ENDPOINT
