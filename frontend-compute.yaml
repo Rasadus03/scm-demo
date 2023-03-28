@@ -21,13 +21,13 @@ spec:
   networkInterface:
     - accessConfig:
       - natIpRef:
-          name: guest-frontend-ip-ext
+          name: guest-frontend-ip-ex
         networkTier: PREMIUM
     - subnetworkRef:
         external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
     - networkIpRef:
         kind: ComputeAddress
-        name: guest-frontend-ip-int
+        name: guest-frontend-ip-in
   tags:
     - http-server
     - https-server
@@ -47,7 +47,7 @@ kind: ComputeAddress
 metadata:
   annotations:
     cnrm.cloud.google.com/project-id: raniamoh-playground
-  name: guest-frontend-ip-ext
+  name: guest-frontend-ip-ex
 spec:
   description: a external address for the test compute instance
   location: europe-west4
@@ -59,7 +59,7 @@ kind: ComputeAddress
 metadata:
   annotations:
     cnrm.cloud.google.com/project-id: raniamoh-playground
-  name: guest-frontend-ip-int
+  name: guest-frontend-ip-in
 spec:
   description: a external address for the test compute instance
   location: europe-west4
