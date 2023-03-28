@@ -63,7 +63,7 @@ metadata:
 spec:
   description: a external address for the test compute instance
   location: europe-west4
-  addressType: INTERNAL
+  #addressType: INTERNAL
   subnetworkRef:
     external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
   #purpose: GCE_ENDPOINT
