@@ -38,7 +38,7 @@ spec:
       - id: Deploy Changes of Guestbook
         name: "gcr.io/cloud-builders/gcloud"
         env:
-        - "PROJECT_ID=$PROJECT_ID"
+          - "PROJECT_ID=$PROJECT_ID"
         dir: src
         script: |
           #!/bin/bash
