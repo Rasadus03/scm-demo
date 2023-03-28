@@ -35,11 +35,11 @@ spec:
     external: 189908348872-compute@developer.gserviceaccount.com
   build:
     step:
-    - id: Deploy Changes of Guestbook
-      name: "gcr.io/cloud-builders/gcloud"
-      env:
-      - "PROJECT_ID=$PROJECT_ID"
-      dir: src
-      script: |
-        #!/bin/bash
-        gcloud compute scp --recurse guest-book-frontend-vm: scr/* ~
+      - id: Deploy Changes of Guestbook
+        name: "gcr.io/cloud-builders/gcloud"
+        env:
+        - "PROJECT_ID=$PROJECT_ID"
+        dir: src
+        script: |
+          #!/bin/bash
+          gcloud compute scp --recurse guest-book-frontend-vm: scr/* ~
