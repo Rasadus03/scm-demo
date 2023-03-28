@@ -24,12 +24,11 @@ spec:
           kind: ComputeAddress
           name: guest-frontend-ip-ext
         networkTier: PREMIUM
-    #stackType: IPV4_ONLY
     - subnetworkRef:
         external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
-    networkIpRef:
-      kind: ComputeAddress
-      name: guest-frontend-ip-int
+    - networkIpRef:
+        kind: ComputeAddress
+        name: guest-frontend-ip-int
   tags:
     - http-server
     - https-server
