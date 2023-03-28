@@ -21,7 +21,6 @@ spec:
   networkInterface:
     - accessConfig:
       - natIpRef:
-          kind: ComputeAddress
           name: guest-frontend-ip-ext
         networkTier: PREMIUM
     - subnetworkRef:
