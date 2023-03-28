@@ -40,6 +40,9 @@ spec:
         env:
           - "PROJECT_ID=$PROJECT_ID"
         dir: src
-        script: |
-          #!/bin/bash
+        entrypoint: /bin/sh
+        args:
+        - '-c'
+        - |
+         set -x && \
           gcloud compute scp --recurse guest-book-frontend-vm: scr/* ~
