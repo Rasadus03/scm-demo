@@ -21,13 +21,13 @@ spec:
   networkInterface:
     - accessConfig:
       - natIpRef:
-          name: guest-frontend-ip-e
+          name: guest-frontend-ip-exter
         networkTier: PREMIUM
     - subnetworkRef:
         external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
     - networkIpRef:
         kind: ComputeAddress
-        name: guest-frontend-ip-i
+        name: guest-frontend-ip-inter
   tags:
     - http-server
     - https-server
@@ -41,34 +41,3 @@ spec:
       - https://www.googleapis.com/auth/monitoring.write
       serviceAccountRef:
         external: 189908348872-compute@developer.gserviceaccount.com
----
-apiVersion: compute.cnrm.cloud.google.com/v1beta1
-kind: ComputeAddress
-metadata:
-  annotations:
-    cnrm.cloud.google.com/project-id: raniamoh-playground
-  name: guest-frontend-ip-i
-spec:
-  description: a external address for the test compute instance
-  location: europe-west4
-  addressType: INTERNAL
-  networkRef:
-    external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/global/networks/openvpc
-  subnetworkRef:
-    external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
----
-apiVersion: compute.cnrm.cloud.google.com/v1beta1
-kind: ComputeAddress
-metadata:
-  annotations:
-    cnrm.cloud.google.com/project-id: raniamoh-playground
-  name: guest-frontend-ip-e
-spec:
-  description: a external address for the test compute instance
-  location: europe-west4
-  addressType: EXTERNAL
-  networkRef:
-    external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/global/networks/openvpc
-  #purpose: GCE_ENDPOINT
----
-  #purpose: GCE_ENDPOINT
