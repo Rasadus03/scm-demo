@@ -19,9 +19,20 @@ spec:
         external: https://www.googleapis.com/compute/beta/projects/debian-cloud/global/images/debian-11-bullseye-v20230306
     mode: READ_WRITE
   networkInterface:
+    - accessConfig:
+      - natIpRef:
+          kind: ComputeAddress
+          name: guest-frontend-ip-ext
+        networkTier: PREMIUM
     #stackType: IPV4_ONLY
     - subnetworkRef:
         external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
+    networkIpRef:
+      kind: ComputeAddress
+      name: guest-frontend-ip-int
+  tags:
+    - http-server
+    - https-server
   serviceAccount:
       scopes:
       - https://www.googleapis.com/auth/service.management.readonly
@@ -32,3 +43,23 @@ spec:
       - https://www.googleapis.com/auth/monitoring.write
       serviceAccountRef:
         external: 189908348872-compute@developer.gserviceaccount.com
+---
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeAddress
+metadata:
+  name: guest-frontend-ip-ext
+spec:
+  description: a external address for the test compute instance
+  location: europe-west4
+  addressType: external
+  purpose: GCE_ENDPOINT
+---
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeAddress
+metadata:
+  name: guest-frontend-ip-int
+spec:
+  description: a external address for the test compute instance
+  location: europe-west4
+  addressType: internal
+  purpose: GCE_ENDPOINT
