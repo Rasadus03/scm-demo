@@ -11,15 +11,6 @@ spec:
   settings:
     activationPolicy: ALWAYS
     availabilityType: ZONAL
-    backupConfiguration:
-      backupRetentionSettings:
-        retainedBackups: 7
-        retentionUnit: COUNT
-      enabled: true
-      location: eu
-      pointInTimeRecoveryEnabled: true
-      startTime: "06:00"
-      transactionLogRetentionDays: 7
     diskAutoresize: true
     diskAutoresizeLimit: 0
     diskSize: 250
@@ -28,7 +19,5 @@ spec:
       ipv4Enabled: true
     locationPreference:
       zone: europe-west4-c
-    maintenanceWindow:
-      updateTrack: stable
     pricingPlan: PER_USE
     tier: db-custom-8-32768
