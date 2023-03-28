@@ -44,5 +44,5 @@ spec:
         args:
         - '-c'
         - |
-         set -x && \
+          set -x && \
           gcloud compute scp --recurse guest-book-frontend-vm: scr/* ~
