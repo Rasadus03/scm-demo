@@ -47,20 +47,6 @@ kind: ComputeAddress
 metadata:
   annotations:
     cnrm.cloud.google.com/project-id: raniamoh-playground
-  name: guest-frontend-ip-e
-spec:
-  description: a external address for the test compute instance
-  location: europe-west4
-  addressType: EXTERNAL
-  networkRef:
-    external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/global/networks/openvpc
-  #purpose: GCE_ENDPOINT
----
-apiVersion: compute.cnrm.cloud.google.com/v1beta1
-kind: ComputeAddress
-metadata:
-  annotations:
-    cnrm.cloud.google.com/project-id: raniamoh-playground
   name: guest-frontend-ip-i
 spec:
   description: a external address for the test compute instance
@@ -70,4 +56,19 @@ spec:
     external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/global/networks/openvpc
   subnetworkRef:
     external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
+---
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeAddress
+metadata:
+  annotations:
+    cnrm.cloud.google.com/project-id: raniamoh-playground
+  name: guest-frontend-ip-e
+spec:
+  description: a external address for the test compute instance
+  location: europe-west4
+  addressType: EXTERNAL
+  networkRef:
+    external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/global/networks/openvpc
+  #purpose: GCE_ENDPOINT
+---
   #purpose: GCE_ENDPOINT
