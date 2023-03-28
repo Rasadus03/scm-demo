@@ -1,0 +1,44 @@
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeInstance
+metadata:
+  annotations:
+    cnrm.cloud.google.com/allow-stopping-for-update: "true"
+    cnrm.cloud.google.com/project-id: raniamoh-playground
+  name: guest-book-frontend-vm
+spec:
+  machineType: e2-medium
+  zone: europe-west4-c
+  metadata:
+    - key: enable-oslogin
+      value: "true"
+  bootDisk:
+    initializeParams:
+      size: 24
+      type: pd-balanced
+      sourceImageRef:
+        external: https://www.googleapis.com/compute/beta/projects/debian-cloud/global/images/debian-11-bullseye-v20230306
+    mode: READ_WRITE
+  metadataStartupScript:'apt-get update \n apt-get install -yq git supervisor python python-pip python3-distutils \n pip install --upgrade pip virtualenv \n export HOME=/root \n git clone https://github.com/GoogleCloudPlatform/getting-started-python.git /opt/app \n sudo bash /opt/app/gce/add-google-cloud-ops-agent-repo.sh --also-install \n useradd -m -d /home/pythonapp pythonapp \n virtualenv -p python3 /opt/app/gce/env \n bin/bash -c "source /opt/app/gce/env/bin/activate" \n /opt/app/gce/env/bin/pip install -r /opt/app/gce/requirements.txt \n chown -R pythonapp:pythonapp /opt/app \n cp /opt/app/gce/python-app.conf /etc/supervisor/conf.d/python-app.conf \n supervisorctl reread \n supervisorctl update'
+  networkInterface:
+    - accessConfig:
+      - natIpRef:
+          name: guest-frontend-ip-ee
+        networkTier: PREMIUM
+      subnetworkRef:
+        external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
+      networkIpRef:
+        kind: ComputeAddress
+        name: guest-frontend-ip-ii
+  tags:
+    - http-server
+    - https-server
+  serviceAccount:
+      scopes:
+      - https://www.googleapis.com/auth/service.management.readonly
+      - https://www.googleapis.com/auth/servicecontrol
+      - https://www.googleapis.com/auth/trace.append
+      - https://www.googleapis.com/auth/devstorage.read_only
+      - https://www.googleapis.com/auth/logging.write
+      - https://www.googleapis.com/auth/monitoring.write
+      serviceAccountRef:
+        external: 189908348872-compute@developer.gserviceaccount.com
