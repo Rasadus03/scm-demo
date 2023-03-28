@@ -1,0 +1,43 @@
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeInstance
+metadata:
+  annotations:
+    cnrm.cloud.google.com/allow-stopping-for-update: "true"
+    cnrm.cloud.google.com/project-id: raniamoh-playground
+  name: guest-book-frontend-vm
+spec:
+  machineType: e2-medium
+  zone: europe-west4-c
+  metadata:
+    - key: enable-oslogin
+      value: "true"
+  bootDisk:
+    initializeParams:
+      size: 24
+      type: pd-balanced
+      sourceImageRef:
+        external: https://www.googleapis.com/compute/beta/projects/debian-cloud/global/images/debian-11-bullseye-v20230306
+    mode: READ_WRITE
+  networkInterface:
+    - accessConfig:
+      - natIpRef:
+          name: guest-frontend-ip-ee
+        networkTier: PREMIUM
+    - networkIpRef:
+        kind: ComputeAddress
+        name: guest-frontend-ip-ii
+    - subnetworkRef:
+        external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
+  tags:
+    - http-server
+    - https-server
+  serviceAccount:
+      scopes:
+      - https://www.googleapis.com/auth/service.management.readonly
+      - https://www.googleapis.com/auth/servicecontrol
+      - https://www.googleapis.com/auth/trace.append
+      - https://www.googleapis.com/auth/devstorage.read_only
+      - https://www.googleapis.com/auth/logging.write
+      - https://www.googleapis.com/auth/monitoring.write
+      serviceAccountRef:
+        external: 189908348872-compute@developer.gserviceaccount.com
