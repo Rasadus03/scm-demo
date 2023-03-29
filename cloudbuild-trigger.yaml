@@ -25,24 +25,22 @@ spec:
     name: guestbook
     push:
       branch: ^main$
-  ignoredFiles:
-  - "**/*.md"
   includedFiles:
-  - "src/**"
+  - "*"
   substitutions:
     "_SERVICE_NAME": "service-name"
-  serviceAccountRef:
-    external: 189908348872-compute@developer.gserviceaccount.com
   build:
     step:
-      - id: Deploy Changes of Guestbook
-        name: "gcr.io/cloud-builders/gcloud"
+      - name: gcr.io/cloud-builders/gcloud
         env:
-          - "PROJECT_ID=$PROJECT_ID"
-        dir: src
-        entrypoint: /bin/sh
+        - PROJECT_ID=$PROJECT_ID
         args:
         - '-c'
         - |
           set -x && \
-          gcloud compute scp --recurse guest-book-frontend-vm: scr/* ~
+          
+          gcloud compute scp  --zone=europe-west4-c --recurse *
+          guest-book-frontend-vm:~
+        dir: src
+        id: Deploy Changes of Guestbook
+        entrypoint: /bin/sh
