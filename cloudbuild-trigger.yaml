@@ -15,16 +15,16 @@
 apiVersion: cloudbuild.cnrm.cloud.google.com/v1beta1
 kind: CloudBuildTrigger
 metadata:
-  name: guestbook-trigger
+  name: guestbook-trigger-1
   annotations:
     cnrm.cloud.google.com/project-id: raniamoh-playground
 spec:
   disabled: false
   github:
-    owner: Rasadus03
-    name: guestbook
+    owner: "Rasadus03"
+    name: "guestbook"
     push:
-      branch: ^main$
+      branch: "^main$"
   includedFiles:
   - "*"
   substitutions:
