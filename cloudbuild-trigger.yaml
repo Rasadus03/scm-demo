@@ -31,9 +31,9 @@ spec:
     "_SERVICE_NAME": "service-name"
   build:
     step:
-      - name: gcr.io/cloud-builders/gcloud
+      - name: "gcr.io/cloud-builders/gcloud"
         env:
-        - PROJECT_ID=$PROJECT_ID
+        - "PROJECT_ID=$PROJECT_ID"
         args:
         - '-c'
         - |
