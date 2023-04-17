@@ -1,0 +1,21 @@
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeAddress
+metadata:
+  annotations:
+    cnrm.cloud.google.com/project-id: raniamoh-playground
+  name: apache-frontend-ip-ii
+spec:
+  addressType: INTERNAL
+  location: europe-west4
+  subnetworkRef:
+    external: https://www.googleapis.com/compute/v1/projects/raniamoh-playground/regions/europe-west4/subnetworks/openvpc
+---
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeAddress
+metadata:
+  annotations:
+    cnrm.cloud.google.com/project-id: raniamoh-playground
+  name: apache-frontend-ip-ee
+spec:
+  addressType: EXTERNAL
+  location: europe-west4
